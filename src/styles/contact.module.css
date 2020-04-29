@@ -1,8 +1,8 @@
 .links {
-  display: block;
+  display: flex;
   margin: 1rem auto;
   max-width: 500px;
-  text-align: center;
+  justify-content: center;
 }
 
 .links a {
@@ -33,4 +33,13 @@
 
 .name a {
   color: inherit;
+}
+
+.dou {
+  display: inline-block;
+  color: white;
+  background: black;
+  width: 30px;
+  height: 30px;
+  text-align: center;
 }
