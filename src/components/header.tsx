@@ -7,8 +7,7 @@ import styles from '../styles/header.module.css'
 const navItems: { label: string; page?: string; link?: string }[] = [
   { label: 'Home', page: '/' },
   { label: 'Blog', page: '/blog' },
-  { label: 'Contact', page: '/contact' },
-  { label: 'Source Code', link: 'https://github.com/ijjk/notion-blog' },
+  { label: 'Contact', page: '/blog/resume' }
 ]
 
 const ogImageUrl = 'https://notion-blog.now.sh/og-image.png'
@@ -31,7 +30,7 @@ export default ({ titlePre = '' }) => {
         <meta name="twitter:image" content={ogImageUrl} />
       </Head>
 
-      <img src='/YAO.svg' alt='YAO'/>
+      <img className={styles.logo} src='/YAO.svg' alt='YAO'/>
 
       <ul>
         {navItems.map(({ label, page, link }) => (

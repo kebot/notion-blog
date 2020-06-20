@@ -43,7 +43,7 @@ export async function getStaticProps({ preview }) {
       preview: preview || false,
       posts,
     },
-    unstable_revalidate: 10
+    unstable_revalidate: 10,
     // revalidate: 10,
   }
 }
@@ -72,14 +72,15 @@ export default ({ posts = [], preview }) => {
           return (
             <div className={blogStyles.postPreview} key={post.Slug}>
               <h3>
-                <Link href="/blog/[slug]" as={getBlogLink(post.Slug)}>
-                  <div className={blogStyles.titleContainer}>
-                    {!post.Published && (
-                      <span className={blogStyles.draftBadge}>Draft</span>
-                    )}
+                <div className={blogStyles.titleContainer}>
+                  {!post.Published && (
+                    <span className={blogStyles.draftBadge}>Draft</span>
+                  )}
+
+                  <Link href="/blog/[slug]" as={getBlogLink(post.Slug)}>
                     <a>{post.Page}</a>
-                  </div>
-                </Link>
+                  </Link>
+                </div>
               </h3>
               {post.Authors.length > 0 && (
                 <div className="authors">By: {post.Authors.join(' ')}</div>

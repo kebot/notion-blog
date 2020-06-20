@@ -2,7 +2,7 @@ import Link from 'next/link'
 import fetch from 'node-fetch'
 import { useRouter } from 'next/router'
 import Header from '../../components/header'
-import Heading from '../../components/heading'
+// import Heading from '../../components/heading'
 import components from '../../components/dynamic'
 import ReactJSXParser from '@zeit/react-jsx-parser'
 import blogStyles from '../../styles/blog.module.css'
@@ -29,7 +29,7 @@ export async function getStaticProps({ params: { slug }, preview }) {
         preview: false,
       },
       // revalidate: 5,
-      unstable_revalidate: 5
+      unstable_revalidate: 5,
     }
   }
   const postData = await getPageData(post.id)
@@ -65,7 +65,7 @@ export async function getStaticProps({ params: { slug }, preview }) {
       post,
       preview: preview || false,
     },
-    unstable_revalidate: 10
+    unstable_revalidate: 10,
     // revalidate: 10,
   }
 }
@@ -154,20 +154,13 @@ const RenderPost = ({ post, redirect, preview }) => {
       )}
       <div className={blogStyles.post}>
         <h1>{post.Page || ''}</h1>
-        {post.Authors.length > 0 && (
-          <div className="authors">By: {post.Authors.join(' ')}</div>
-        )}
-        {post.Date && (
-          <div className="posted">Posted: {getDateStr(post.Date)}</div>
-        )}
-
-        <hr />
 
         {(!post.content || post.content.length === 0) && (
           <p>This post has no content</p>
         )}
 
         {(post.content || []).map((block, blockIdx) => {
+          // console.log(block)
           const { value } = block
           const { type, properties, id, parent_id } = value
           const isLast = blockIdx === post.content.length - 1
@@ -224,9 +217,7 @@ const RenderPost = ({ post, redirect, preview }) => {
 
           const renderHeading = (Type: string | React.ComponentType) => {
             toRender.push(
-              <Heading key={id}>
-                <Type key={id}>{textBlock(properties.title, true, id)}</Type>
-              </Heading>
+              <Type key={id}>{textBlock(properties.title, true, id)}</Type>
             )
           }
 

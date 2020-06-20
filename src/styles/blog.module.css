@@ -81,11 +81,6 @@
   margin-top: 0;
 }
 
-.post :global(h2),
-.post :global(h3) {
-  margin: 3rem 0 1.5rem 0;
-}
-
 .post :global(video),
 .post :global(img),
 .post :global(.asset-wrapper) {
@@ -131,4 +126,19 @@
 
 .post :global(a + p) {
   margin-top: 0;
+}
+
+@media print {
+  .post {
+    padding: 0;
+  }
+
+  .post :global(h2),
+  .post :global(h3),
+  .post :global(h4),
+  .post :global(h5),
+  .post :global(h6) {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
 }

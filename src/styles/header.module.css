@@ -26,8 +26,18 @@
   font-weight: 600;
 }
 
+.header .logo {
+  display: inline-block;
+}
+
 @media (max-width: 600px) {
   .header {
     padding: .5em 0 2em;
+  }
+}
+
+@media print {
+  .header {
+    display: none;
   }
 }
