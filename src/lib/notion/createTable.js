@@ -1,6 +1,8 @@
 // commonjs so it can be run without transpiling
-const uuid = require('uuid/v4')
-const fetch = require('node-fetch')
+import { v4 } from 'uuid'
+// const uuid = require('uuid/dist/v4')
+import fetch from 'node-fetch'
+
 const {
   BLOG_INDEX_ID: pageId,
   NOTION_TOKEN,
